@@ -1,0 +1,27 @@
+{
+  "name": "Twitter adblocker",
+  "description": "Block ads on Twitter",
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "homepage_url": "https://github.com/remusao/twitter-adblocker",
+  "author": "remusao",
+  "icons": {
+    "128": "./icon.png"
+  },
+  "permissions": [
+    "https://twitter.com/*"
+  ],
+  "browser_action": {
+    "default_title": "Twitter adblocker"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "content-script.js"
+      ],
+      "matches": [
+        "https://twitter.com/*"
+      ]
+    }
+  ]
+}

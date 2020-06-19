@@ -1,0 +1,19 @@
+{
+  "name": "twitter-adblocker",
+  "version": "1.0.0",
+  "description": "Block ads on Twitter",
+  "author": "remusao",
+  "license": "MPL-2.0",
+  "scripts": {
+    "clean": "rm -rfv web-ext-artifacts",
+    "start:firefox": "web-ext run --source-dir='.'",
+    "start:chromium": "web-ext run --source-dir='.' --target chromium",
+    "ext:lint": "web-ext lint",
+    "ext:build": "web-ext build --overwrite-dest"
+  },
+  "devDependencies": {
+    "web-ext": "^4.2.0"
+  },
+  "dependencies": {
+  }
+}
