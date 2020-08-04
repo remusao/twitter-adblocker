@@ -12,7 +12,7 @@
     "ext:build": "web-ext build --overwrite-dest"
   },
   "devDependencies": {
-    "web-ext": "^4.3.0"
+    "web-ext": "^5.0.0"
   },
   "dependencies": {
   }
