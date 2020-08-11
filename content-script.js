@@ -1,35 +1,45 @@
-function removeAds(root) {
-  for (let node of [...root.querySelectorAll('span')].filter((s) =>
-    s.textContent.startsWith('Promoted'),
-  )) {
-    for (
-      let level = 0;
-      level < 15 && node !== document.body && node.parentNode !== null;
-      level += 1
+function removeNode(root) {
+  let node = root;
+  for (
+    let level = 0;
+    node !== document.body && node.parentNode !== null;
+    level += 1
+  ) {
+    const testid = node.getAttribute('data-testid');
+    if (
+      testid !== null &&
+      (testid === 'placementTracking' ||
+        testid === 'trend' ||
+        testid === 'UserCell')
     ) {
-      if (
-        (node.parentNode.classList.length === 0 &&
-          node.parentNode.id === '' &&
-          node.parentNode.style.length === 0) ||
-        node.getAttribute('data-testid') === 'UserCell' ||
-        node.getAttribute('data-testid') === 'trend'
-      ) {
-        node.parentNode.removeChild(node);
-        break;
-      }
-      node = node.parentNode;
+      node.parentNode.removeChild(node);
+      break;
+    }
+    node = node.parentNode;
+  }
+}
+
+function removeAds(root) {
+  for (const node of root.querySelectorAll('span')) {
+    if (node.textContent === 'Promoted') {
+      removeNode(node);
     }
   }
 }
 
-setTimeout(() => {
-  removeAds(document);
-}, 0)
+setTimeout(removeAds, 0, document);
 
 const observer = new MutationObserver((mutationList) => {
   for (const mutation of mutationList) {
-    for (const node of mutation.addedNodes) {
-      removeAds(mutation.target);
+    if (mutation.addedNodes.length !== 0) {
+      for (const node of mutation.addedNodes) {
+        if (
+          (node.tagName === 'DIV' || node.tagName === 'ASIDE') &&
+          node.textContent.includes('Promoted')
+        ) {
+          removeAds(node);
+        }
+      }
     }
   }
 });
