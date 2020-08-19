@@ -1,6 +1,6 @@
 {
   "name": "twitter-adblocker",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Block ads on Twitter",
   "author": "remusao",
   "license": "MPL-2.0",
@@ -12,8 +12,8 @@
     "ext:build": "web-ext build --overwrite-dest"
   },
   "devDependencies": {
+    "eslint": "^7.7.0",
     "web-ext": "^5.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

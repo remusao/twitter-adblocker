@@ -1,6 +1,6 @@
 function removeAds(root) {
   for (let node of root.querySelectorAll('span')) {
-    if (node.textContent === 'Promoted') {
+    if (node.textContent.startsWith('Promoted')) {
       for (
         let level = 0;
         node !== document.body && node.parentNode !== null;
