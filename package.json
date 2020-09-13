@@ -12,7 +12,7 @@
     "ext:build": "web-ext build --overwrite-dest"
   },
   "devDependencies": {
-    "eslint": "^7.8.1",
+    "eslint": "^7.9.0",
     "web-ext": "^5.0.0"
   },
   "dependencies": {}
